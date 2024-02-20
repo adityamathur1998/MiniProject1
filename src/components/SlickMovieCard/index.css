@@ -1,0 +1,22 @@
+.slick-app-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.react-slick-li-item {
+  list-style-type: none;
+}
+
+.slick-movie-img {
+  height: 150px;
+  width: 254px;
+  margin: 10px;
+}
+
+@media screen and (max-width: 767px) {
+  .slick-movie-img {
+    width: 90px;
+    height: 90px;
+  }
+}

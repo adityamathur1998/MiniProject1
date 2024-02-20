@@ -1,0 +1,81 @@
+.device-container {
+  width: 296px;
+  height: 213px;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+@media screen and (min-width: 768px) {
+  .device-container {
+    width: 1109px;
+    height: 466px;
+    border-radius: 8px;
+  }
+}
+
+.heading-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  height: 100%;
+  padding: 30px;
+}
+
+@media screen and (min-width: 768px) {
+  .heading-container {
+    padding: 60px;
+  }
+}
+
+.play-button {
+  align-self: flex-start;
+  width: 76px;
+  height: 32px;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 24px 8px 24px;
+  gap: 8px;
+  background-color: #ffffff;
+  color: #171f46;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 16px;
+  cursor: pointer;
+}
+
+.home-poster-title {
+  font-family: HK Grotes;
+  font-size: 36px;
+  font-weight: 600;
+  line-height: 47px;
+  letter-spacing: 0px;
+  color: #ffffff;
+}
+
+@media screen and (min-width: 768px) {
+  .home-poster-title {
+    font-size: 64px;
+    line-height: 62px;
+  }
+}
+
+.home-poster-description {
+  font-family: HK Grotesk;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 21px;
+  letter-spacing: 0em;
+  color: #ffffff;
+  margin-bottom: 12px;
+  margin-top: 10px;
+}
+
+@media screen and (min-width: 768px) {
+  .home-poster-description {
+    font-size: 20px;
+    line-height: 26px;
+  }
+}

@@ -1,0 +1,22 @@
+.originals-container {
+  width: 256px;
+  height: 90px;
+  border-radius: 4px;
+  margin: 18px;
+  margin-bottom: 60px;
+  padding: 10px;
+}
+
+@media screen and (min-width: 768px) {
+  .originals-container {
+    width: 1109px;
+    height: 170px;
+    border-radius: 8px;
+  }
+}
+
+.loader-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

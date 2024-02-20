@@ -1,138 +1,120 @@
-.login-pg-bg-container {
+.login-form-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   height: 100vh;
+  /* width: 90%; */
+  /* max-width: 1110px; */
   background-color: #131313;
+  margin: auto;
+  /* border: 1px solid red; */
 }
 
-@media screen and (min-width: 768px) {
-  .login-pg-bg-container {
-    background-image: url('https://res.cloudinary.com/dvl0fu9ws/image/upload/v1708043328/netfilx_1_mwjj3e.png');
+@media screen and (min-width: 728px) {
+  .login-form-container {
+    /* flex-direction: row;
+    justify-content: space-around; */
+    background-image: url('https://res.cloudinary.com/dyx9u0bif/image/upload/v1657426893/bg-image_usfch9.png');
     background-size: cover;
   }
 }
-
-.website-logo {
-  width: 100px;
-  height: 27px;
-  margin-top: 32px;
-  margin-left: 32px;
-}
-
-@media screen and (min-width: 768px) {
-  .website-logo {
-    width: 180px;
-    height: 52px;
-    margin-top: 48px;
-    margin-left: 165px;
-  }
-}
-
 .form-container {
-  width: 90vw;
-  margin-left: 32px;
-  margin-right: 32px;
   display: flex;
   flex-direction: column;
-  margin: auto;
-  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 350px;
+  background-color: rgba(0, 0, 0, 0.7);
+  /* border: 1px solid orangered; */
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 992px) {
   .form-container {
-    background-color: #0c0b10;
-    border-radius: 8px;
-    width: 456px;
-    padding: 18px;
-    opacity: 80%;
-    margin-top: 120px;
+    width: 350px;
+    flex-shrink: 0;
+    box-shadow: 0px 8px 40px rgba(7, 7, 7, 0.08);
+    padding: 64px 48px 64px 48px;
   }
 }
 
-.login-text {
+.login-website-logo {
+  width: 185px;
+}
+.input-label {
+  margin-bottom: 0px;
   font-family: 'Roboto';
-  font-size: 32px;
-  font-weight: 500;
-  line-height: 40px;
-  letter-spacing: 0em;
+  font-weight: bold;
+
+  color: #475569;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 16px;
   color: #ffffff;
-  margin-top: 164px;
-  margin-bottom: 30px;
 }
-
-@media screen and (min-width: 768px) {
-  .login-text {
-    font-family: 'HK Grotesk';
-    font-size: 32px;
-    font-weight: 600;
-    text-align: center;
-    margin-top: 20px;
-  }
-}
-
 .input-container {
   display: flex;
   flex-direction: column;
+  margin-top: 20px;
+  width: 100%;
+  /* border: 1px solid greenyellow; */
 }
-
-.label-text {
-  font-family: 'Roboto';
-  font-size: 12px;
-  font-weight: 700;
-  line-height: 16px;
-  letter-spacing: 0.01em;
-  color: #ffffff;
-}
-
-@media screen and (min-width: 768px) {
-  .label-text {
-    font-family: 'HK Grotesk';
-  }
-}
-
 .input-field {
+  font-size: 14px;
   height: 40px;
-  margin-top: 14px;
-  border: none;
-  outline: none;
-  border-radius: 2px;
+  border: 1px solid #333333;
   background-color: #333333;
-  font-family: 'HK Grotesk';
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 24px;
-  letter-spacing: 0em;
-  color: #e2e8f0;
-  width: 360px;
-  padding-left: 8px;
-  padding-top: 12px;
-  padding-bottom: 12px;
-  padding-right: 8px;
-  width: 100%;
-  margin-bottom: 20px;
+  color: #64748b;
+  border-radius: 2px;
+  margin-top: 5px;
+  padding: 8px 16px 8px 16px;
+  outline: none;
 }
-
-.error-text {
+.login-btn {
   font-family: 'Roboto';
-  color: #dc2626;
-  font-weight: 400;
+  font-weight: bold;
   font-size: 14px;
-  line-height: 16px;
-}
-
-@media screen and (min-width: 768px) {
-  .error-text {
-    line-height: 18px;
-  }
-}
-
-.sign-in-button {
-  width: 100%;
-  height: 40px;
-  padding: 8px, 20px, 8px, 20px;
-  border: none;
-  border-radius: 4px;
-  gap: 10px;
-  background-color: #e50914;
   color: #ffffff;
+  height: 40px;
+  width: 100%;
+  margin-top: 20px;
+  margin-bottom: 2px;
+  background-color: #e50914;
+  border-radius: 8px;
+  border: none;
   outline: none;
   cursor: pointer;
+}
+.login-err-msg {
+  align-self: start;
+  font-size: 12px;
+  margin-top: 3px;
+  margin-bottom: 0px;
+  font-family: 'Roboto';
+  font-size: 12px;
+  line-height: 16px;
+  color: #dc2626;
+}
+.show-hide-container {
+  display: flex;
+  margin-top: 6px;
+}
+.login-text {
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 32px;
+  line-height: 40px;
+  align-self: flex-start;
+}
+.login-website-logo {
+  width: 105px;
+  align-self: flex-start;
+  margin-top: -100px;
+  margin-bottom: 200px;
+  margin-left: 30px;
 }

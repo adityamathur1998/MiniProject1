@@ -1,0 +1,59 @@
+.popular-pg-container {
+  background-color: #131313;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.popular-movies-container {
+  padding: 10px;
+  padding-top: 103px;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media screen and (max-width: 767px) {
+  .popular-movies-container {
+    padding-top: 28px;
+  }
+}
+
+.loader-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.popular-ul-list {
+  width: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  min-height: 100vh;
+  padding: 0px;
+  margin: 0px;
+}
+
+.popular-li-item {
+  padding: 5px;
+  list-style-type: none;
+}
+
+.popular-poster {
+  height: 90px;
+  width: 100px;
+  border-radius: 4px;
+}
+
+@media screen and (min-width: 768px) {
+  .popular-poster {
+    width: 225px;
+    height: 170px;
+    border-radius: 8px;
+  }
+}

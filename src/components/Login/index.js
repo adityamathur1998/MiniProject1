@@ -1,6 +1,6 @@
 import {Component} from 'react'
-import Cookies from 'js-cookie'
 import {Redirect} from 'react-router-dom'
+import Cookies from 'js-cookie'
 
 import './index.css'
 
@@ -8,43 +8,9 @@ class Login extends Component {
   state = {
     username: '',
     password: '',
-    showError: false,
+    showSubmitError: false,
     errorMsg: '',
-  }
-
-  onSubmitSuccess = jwtToken => {
-    const {history} = this.props
-
-    Cookies.set('jwt_token', jwtToken, {
-      expires: 30,
-      path: '/',
-    })
-    history.replace('/')
-  }
-
-  onSubmitFailure = errorMsg => {
-    this.setState(prevState => ({
-      showError: !prevState.showError,
-      errorMsg,
-    }))
-  }
-
-  onSubmitForm = async event => {
-    event.preventDefault()
-    const {username, password} = this.state
-    const userDetails = {username, password}
-    const url = 'https://apis.ccbp.in/login'
-    const options = {
-      method: 'POST',
-      body: JSON.stringify(userDetails),
-    }
-    const response = await fetch(url, options)
-    const data = await response.json()
-    if (response.ok === true) {
-      this.onSubmitSuccess(data.jwt_token)
-    } else {
-      this.onSubmitFailure(data.error_msg)
-    }
+    isPasswordChecked: false,
   }
 
   onChangeUsername = event => {
@@ -59,69 +25,125 @@ class Login extends Component {
     })
   }
 
+  onSubmitSuccess = jwtToken => {
+    const {history} = this.props
+    Cookies.set('jwt_token', jwtToken, {expires: 30})
+    history.replace('/')
+    const {username, password} = this.state
+    localStorage.setItem('username', username)
+    localStorage.setItem('password', password)
+  }
+
+  onSubmitFailure = errMsg => {
+    this.setState({showSubmitError: true, errorMsg: errMsg})
+  }
+
+  submitForm = async event => {
+    event.preventDefault()
+    const {username, password} = this.state
+    const userDetails = {
+      username,
+      password,
+    }
+    const apiUrl = 'https://apis.ccbp.in/login'
+    const options = {
+      method: 'POST',
+      body: JSON.stringify(userDetails),
+    }
+    const response = await fetch(apiUrl, options)
+    const data = await response.json()
+    if (response.ok === true) {
+      this.onSubmitSuccess(data.jwt_token)
+    } else {
+      this.onSubmitFailure(data.error_msg)
+    }
+  }
+
   renderUsername = () => {
     const {username} = this.state
-    console.log(username)
 
     return (
-      <div className="input-container">
-        <label htmlFor="username" className="label-text">
+      <>
+        <label className="input-label" htmlFor="username">
           USERNAME
         </label>
         <input
-          type="text"
-          value={username}
           onChange={this.onChangeUsername}
-          placeholder="Username"
-          id="username"
+          value={username}
           className="input-field"
+          type="text"
+          id="username"
+          placeholder="Username"
         />
-      </div>
+      </>
     )
   }
 
-  renderPassword = () => {
-    const {password} = this.state
-    console.log(password)
+  //   onShowHidePassword = () => {
+  //     this.setState(prevState => ({
+  //       isPasswordChecked: !prevState.isPasswordChecked,
+  //     }))
+  //   }
 
+  renderPassword = () => {
+    const {password, isPasswordChecked} = this.state
     return (
-      <div className="input-container">
-        <label htmlFor="password" className="label-text">
+      <>
+        <label className="input-label" htmlFor="password">
           PASSWORD
         </label>
         <input
-          type="password"
-          value={password}
           onChange={this.onChangePassword}
-          placeholder="Password"
-          id="password"
+          value={password}
           className="input-field"
+          type={isPasswordChecked ? 'text' : 'password'}
+          id="password"
+          placeholder="Password"
         />
-      </div>
+        {/* <div className="show-hide-container">
+          <input
+            type="checkbox"
+            id="show-password"
+            checked={isPasswordChecked}
+            onChange={this.onShowHidePassword}
+          />
+          <label className="input-label" htmlFor="show-password">
+            Show Password
+          </label>
+        </div> */}
+      </>
     )
   }
 
   render() {
-    const {showError, errorMsg} = this.state
+    const {showSubmitError, errorMsg} = this.state
+    const jwtToken = Cookies.get('jwt_token')
+    if (jwtToken !== undefined) {
+      return <Redirect to="/" />
+    }
     return (
-      <div className="login-pg-bg-container">
+      <div className="login-form-container">
         <img
+          className="login-website-logo"
           src="https://res.cloudinary.com/dyx9u0bif/image/upload/v1657426908/lg-devices-logo_rpfa68.png"
           alt="login website logo"
-          className="website-logo"
         />
-        <form className="form-container" onSubmit={this.onSubmitLogin}>
+        <form className="form-container" onSubmit={this.submitForm}>
+          {/* <img
+            className="login-website-logo"
+            src="https://res.cloudinary.com/dyx9u0bif/image/upload/v1656594712/Group_7399_wrvd0n.png"
+            alt="website logo"
+          /> */}
           <h1 className="login-text">Login</h1>
-          {this.renderUsername()}
-          {this.renderPassword()}
-          {showError && <p className="error-text">{errorMsg}</p>}
-          <button className="sign-in-button" type="submit">
-            Sign in
+          <div className="input-container">{this.renderUsername()}</div>
+          <div className="input-container">{this.renderPassword()}</div>
+          {showSubmitError && <p className="login-err-msg">*{errorMsg}</p>}
+          <button className="login-btn" type="submit">
+            Login
           </button>
         </form>
       </div>
     )
   }
 }
-
 export default Login

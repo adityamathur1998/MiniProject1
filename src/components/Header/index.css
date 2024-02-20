@@ -1,0 +1,152 @@
+.nav-container {
+  background: #13131330;
+  min-height: 75px;
+  padding: 15px;
+  opacity: 80%;
+  width: 100vw;
+  position: static;
+}
+
+@media screen and (min-width: 768px) {
+  .nav-container {
+    position: fixed;
+  }
+}
+
+.nav-element-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-left: 32px;
+  margin-right: 32px;
+}
+
+@media screen and (min-width: 768px) {
+  .nav-element-container {
+    margin-left: 165px;
+    margin-right: 165px;
+  }
+}
+
+.website-logo {
+  width: 100px;
+  height: 27px;
+}
+
+@media screen and (min-width: 768px) {
+  .website-logo {
+    width: 135px;
+    height: 39px;
+  }
+}
+
+.nav-list-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0px;
+  margin: 0px;
+  margin-right: auto;
+}
+
+@media screen and (max-width: 767px) {
+  .nav-list-item {
+    display: none;
+  }
+}
+
+.nav-link {
+  text-decoration: none;
+  outline: none;
+  list-style-type: none;
+}
+
+.popup-heading {
+  font-family: HK Grotesk;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 26px;
+  letter-spacing: -0.35555556416511536px;
+  text-align: left;
+  color: #ffffff;
+  margin-left: 28px;
+}
+
+.active {
+  font-weight: 800;
+  border-bottom: 2px solid blue;
+}
+
+.passive {
+  color: #ffffff90;
+}
+
+.search-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search {
+  border: 1px solid #ffffff;
+  width: 114px;
+  height: 24px;
+  border-radius: 4px;
+  padding: 4px 10px 4px 8px;
+  color: #ffffff;
+  background-color: #000000;
+}
+
+@media screen and (min-width: 768px) {
+  .search {
+    border: 1px solid #f8fafc;
+    width: 264px;
+    height: 40px;
+    border-radius: 4px;
+    padding: 8px 16px 8px 16px;
+  }
+}
+
+.icon-button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.profile-logo {
+  display: none;
+}
+
+@media screen and (min-width: 768px) {
+  .profile-logo {
+    display: block;
+    width: 48px;
+    height: 48px;
+    margin-left: 15px;
+  }
+}
+
+.menu-icon {
+  display: none;
+}
+
+@media screen and (max-width: 767px) {
+  .menu-icon {
+    display: block;
+    margin-left: 10px;
+    cursor: pointer;
+  }
+}
+
+.list-mini {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.icon {
+  cursor: pointer;
+  margin-left: 15px;
+  margin-top: 4px;
+  height: 25px;
+}
